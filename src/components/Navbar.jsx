@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { AiFillTag, AiOutlineClose, AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai'
-import { BsFillCartFill, BsFillSaveFill } from 'react-icons/bs'
+import { BsFillCartFill } from 'react-icons/bs'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { FaUserFriends, FaWallet } from 'react-icons/fa'
 import { MdFavorite, MdHelp } from 'react-icons/md'
+import { Link } from 'react-router-dom'
+
+import userIcon from "../assets/images/user-icon.png";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false)
@@ -15,13 +18,11 @@ const Navbar = () => {
         <div onClick={() => setNav(!nav)} className='cursor-pointer'>
           <AiOutlineMenu size={30} />
         </div>
-        <h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>
-          Best <span className='font-bold'>Food</span>
-        </h1>
-        <div className='hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px]'>
-          <p className='bg-black text-white rounded-full p-2'>Entrega</p>
-          <p className='p-2'>Pegar</p>
-        </div>
+        <Link to='/'>
+          <h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>
+            Best <span className='font-bold'>Food</span>
+          </h1>
+        </Link>
       </div>
 
       {/* Left Side */}
@@ -31,9 +32,16 @@ const Navbar = () => {
       </div>
 
       {/* Cart button */}
-      <button className='bg-black text-white hidden md:flex items-center py-2 rounded-full'>
-        <BsFillCartFill size={20} className='mr-2' /> Carrinho
-      </button>
+      <div className='flex'>
+        <a href="/cart">
+          <button className='bg-black text-white hidden md:flex md:ml-2 items-center py-2 rounded-full'>
+            <BsFillCartFill size={20} className='mr-2' /> Carrinho
+          </button>
+        </a>
+        <div className='w-[40px] ml-2 hidden md:flex'>
+          <img src={userIcon} alt="User" />
+        </div>
+      </div>
 
       {/* Mobile Menu */}
       {/* Overlay */}
@@ -48,31 +56,40 @@ const Navbar = () => {
         </h2>
         <nav>
           <ul className='flex flex-col p-4 text-gray-800'>
-            <li className='text-xl py-4 flex'>
-              <TbTruckDelivery size={25} className='mr-4' /> Pedidos
-            </li>
-            <li className='text-xl py-4 flex'>
-              <MdFavorite size={25} className='mr-4' /> Favoritos
-            </li>
-            <li className='text-xl py-4 flex'>
-              <FaWallet size={25} className='mr-4' /> Carteira
-            </li>
-            <li className='text-xl py-4 flex'>
-              <MdHelp size={25} className='mr-4' /> Ajuda
-            </li>
-            <li className='text-xl py-4 flex'>
-              <AiFillTag size={25} className='mr-4' /> Promoções
-            </li>
-            <li className='text-xl py-4 flex'>
-              <BsFillSaveFill size={25} className='mr-4' /> Melhores
-            </li>
-            <li className='text-xl py-4 flex'>
-              <FaUserFriends size={25} className='mr-4' /> Convide amigos
-            </li>
+            <a href="/">
+              <li className='text-xl py-4 flex'>
+                <TbTruckDelivery size={25} className='mr-4' /> Pedidos
+              </li>
+            </a>
+            <a href="/favorites">
+              <li className='text-xl py-4 flex'>
+                <MdFavorite size={25} className='mr-4' /> Favoritos
+              </li>
+            </a>
+            <a href="/">
+              <li className='text-xl py-4 flex'>
+                <FaWallet size={25} className='mr-4' /> Carteira
+              </li>
+            </a>
+            <a href="/">
+              <li className='text-xl py-4 flex'>
+                <AiFillTag size={25} className='mr-4' /> Promoções
+              </li>
+            </a>
+            <a href="/">
+              <li className='text-xl py-4 flex'>
+                <FaUserFriends size={25} className='mr-4' /> Convide amigos
+              </li>
+            </a>
+            <a href="/">
+              <li className='text-xl py-4 flex'>
+                <MdHelp size={25} className='mr-4' /> Ajuda
+              </li>
+            </a>
           </ul>
         </nav>
       </div>
-    </div>
+    </div >
   )
 }
 
