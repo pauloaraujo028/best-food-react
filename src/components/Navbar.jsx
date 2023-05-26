@@ -5,21 +5,21 @@ import {
   AiOutlineMenu,
   AiOutlineSearch,
 } from "react-icons/ai";
-import { BsFillCartFill } from "react-icons/bs";
+// import { BsFillCartFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaUserFriends, FaWallet } from "react-icons/fa";
 import { MdFavorite, MdHelp } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-import userIcon from "../assets/images/user-icon.png";
+// import userIcon from "../assets/images/user-icon.png";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-black">
+    <div className=" mx-auto flex justify-between items-center p-4 bg-black">
       {/* Left Side */}
-      <div className="flex items-center">
+      <div className="flex items-center max-w-[1640px]">
         <div
           onClick={() => setNav(!nav)}
           className="cursor-pointer bg-white rounded-md"
